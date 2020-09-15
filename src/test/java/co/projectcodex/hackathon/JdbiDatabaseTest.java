@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+/*
 public class JdbiDatabaseTest {
     Jdbi jdbi = Jdbi.create("jdbc:postgresql://localhost/spark_hbs_jdbi");
     @BeforeEach
@@ -84,3 +84,4 @@ public class JdbiDatabaseTest {
 
 
     }
+*/
