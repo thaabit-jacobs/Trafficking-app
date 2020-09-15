@@ -42,7 +42,7 @@
       .banner {
       position: relative;
       height: 300px;
-      background-image: url("https://raw.githubusercontent.com/thaabit-jacobs/Trafficking-app/master/images/banner.jpeg");
+      background-image: url("https://raw.githubusercontent.com/thaabit-jacobs/Trafficking-app/master/images/banner2.jpeg");
       background-size: cover;
       display: flex;
       justify-content: center;
@@ -85,6 +85,9 @@
       .item {
       position: relative;
       margin: 10px 0;
+      }
+       .item span {
+      color: red;
       }
       input[type="date"]::-webkit-inner-spin-button {
       display: none;
@@ -137,36 +140,57 @@
             <h1>safeGaurd24/7 Abduction Report Form</h1>
         </div>
         <div class="item">
-            <p>Name</p>
+            <p> Witness details</p>
+
             <div class="name-item">
-                <input type="text" name="name" placeholder="First" />
-                <input type="text" name="name" placeholder="Last" />
+                <p>First Name</p>
+                <input type="text" name="witness_name" placeholder="" required="required"/>
+                <p>Last Name</p>
+                <input type="text" name="witness_name" placeholder="" />
             </div>
         </div>
         <div class="item">
-            <p>Email</p>
-            <input type="email" name="email"/>
-        </div>
-        <div class="item">
             <p>Phone</p>
-            <input type="text" name="phone" placeholder="### ### ####"/>
+            <input type="text" name="witness_phone" placeholder="*** *** ****" />
+        </div>
+
+        <div class="item">
+            <p>Victim details</p>
+
+            <div class="name-item">
+                <p>First Name</p>
+                <input type="text" name="victim_name" placeholder="" />
+                <p>Last Name</p>
+                <input type="text" name="victim_name" placeholder="" />
+            </div>
+        </div>
+
+        <div class="item">
+            <p>D.O.B</p>
+            <input type="date" name="victim_bdate" required/>
+            <i class="fas fa-calendar-alt"></i>
         </div>
         <div class="item">
-            <p>Reservation Date</p>
+            <p>Area of Abduction</p>
+            <input type="" name=""/>
+        </div>
+        <div class="item">
+            <p>Abduction Date</p>
             <input type="date" name="bdate" required/>
             <i class="fas fa-calendar-alt"></i>
         </div>
         <div class="item">
-            <p>Reservation Time</p>
+            <p>Abduction Time(an estimation if you are uncertain)</p>
             <input type="time" name="btime" required/>
         </div>
         <div class="item">
-            <p>How many people will you be with?</p>
-            <input type="text" name="language"/>
+            <p>Description of Abduction</p>
+            <textarea rows="5"></textarea>
         </div>
+
         <div class="item">
-            <p>Additional notes</p>
-            <textarea rows="3"></textarea>
+            <p>Any additional information that may be helpful to the police...</p>
+            <textarea rows="5"></textarea>
         </div>
         <div class="btn-block">
             <button type="submit" href="/">Send</button>
