@@ -1,175 +1,219 @@
- <!DOCTYPE html>
-    <html>
-    <head>
-        <title>safeGuard24-7 Search Page</title>
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-        <style>
-      html, body {
-      min-height: 100%;
-      text-align:center;
-      }
-      body, div, form, input, select, textarea, p {
-      padding: 0;
-      margin: 0;
-      outline: none;
-      font-family: Roboto, Arial, sans-serif;
-      font-size: 14px;
-      color: #666;
-      line-height: 22px;
-      }
-      img{
-      height 100px;
-      width:100px;
-      }
+<!DOCTYPE html>
+<html>
 
-      #crime_btn{
-      margin-top:10em;
-      }
-      h1 {
-      position: absolute;
-      margin: 0;
-      line-height: 42px;
-      font-size: 42px;
-      color: #fff;
-      z-index: 2;
-      }
-      .testbox {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: inherit;
-      padding: 20px;
-      }
-      form {
-      width: 100%;
-      padding: 20px;
-      border-radius: 6px;
-      background: #fff;
-      box-shadow: 0 0 25px 0 #d6e0f5;
-      }
-      .banner {
-      position: relative;
-      height: 300px;
-      background-image: url("https://raw.githubusercontent.com/thaabit-jacobs/Trafficking-app/master/images/banner2.jpeg");
-      background-size: cover;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      }
-      .banner::after {
-      content: "";
-      background-color: rgba(0, 0, 0, 0.3);
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      }
-      input, select, textarea {
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 3px;
-      }
-      input {
-      width: calc(100% - 10px);
-      padding: 5px;
-      }
-      input[type="date"] {
-      padding: 4px 5px;
-      }
-      select {
-      width: 100%;
-      padding: 7px 0;
-      background: transparent;
-      }
-      textarea {
-      width: calc(100% - 12px);
-      padding: 5px;
-      }
-          .item input:hover, .item select:hover, .item textarea:hover {
-      border: 1px solid transparent;
-      box-shadow: 0 0 6px 0 #d6e0f5;
-      color: #d6e0f5;
-      }
-      .item {
-      position: relative;
-      margin: 10px 0;
-      }
-      .item span {
-      color: red;
-      }
-      span.required {
-      margin-left: 0;
-      color: red;
-      }
-      input[type="date"]::-webkit-inner-spin-button {
-      display: none;
-
-      }
-      .item i, input[type="date"]::-webkit-calendar-picker-indicator {
-      position: absolute;
-      font-size: 20px;
-      color: #a9a9a9;
-      }
-      .item i {
-      right: 2%;
-      top: 28px;
-      z-index: 1;
-      }
-      [type="date"]::-webkit-calendar-picker-indicator {
-      right: 1%;
-      z-index: 2;
-      opacity: 0;
-      cursor: pointer;
-      }
-      .btn-block {
-      margin-top: 10px;
-      text-align: center;
-      }
-      button {
-      width: 170px;
-       height: 70px;
-      padding: 20px;
-      border: none;
-      border-radius: 5px;
-      background:#008000;
-      color: #fff;
-      cursor: pointer;
-      font-family: 'Arial';
-font-size:0.8em;
-      }
-      button:hover {
-      background: #00FF00;
-      }
-      @media (min-width: 568px) {
-      .name-item, .city-item {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      }
-        nav{
-        position:fixed;
+<head>
+    <title>safeGuard24-7 Search Page</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        html,
+        body {
+            min-height: 100%;
+            text-align: center;
         }
+
+        body,
+        div,
+        form,
+        input,
+        select,
+        textarea,
+        p {
+            padding: 0;
+            margin: 0;
+            outline: none;
+            font-family: Roboto, Arial, sans-serif;
+            font-size: 14px;
+            color: #666;
+            line-height: 22px;
+        }
+
+        img {
+            height 100px;
+            width: 100px;
+        }
+
+        #crime_btn {
+            margin-top: 10em;
+        }
+
+        h1 {
+            position: absolute;
+            margin: 0;
+            line-height: 42px;
+            font-size: 42px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        .testbox {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: inherit;
+            padding: 20px;
+        }
+
+        form {
+            width: 100%;
+            padding: 20px;
+            border-radius: 6px;
+            background: #fff;
+            box-shadow: 0 0 25px 0 #d6e0f5;
+        }
+
+        .banner {
+            position: relative;
+            height: 300px;
+            background-image: url("https://raw.githubusercontent.com/thaabit-jacobs/Trafficking-app/master/images/banner2.jpeg");
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .banner::after {
+            content: "";
+            background-color: rgba(0, 0, 0, 0.3);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        input,
+        select,
+        textarea {
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input {
+            width: calc(100% - 10px);
+            padding: 5px;
+        }
+
+        input[type="date"] {
+            padding: 4px 5px;
+        }
+
+        select {
+            width: 100%;
+            padding: 7px 0;
+            background: transparent;
+        }
+
+        textarea {
+            width: calc(100% - 12px);
+            padding: 5px;
+        }
+
+        .item input:hover,
+        .item select:hover,
+        .item textarea:hover {
+            border: 1px solid transparent;
+            box-shadow: 0 0 6px 0 #d6e0f5;
+            color: #d6e0f5;
+        }
+
+        .item {
+            position: relative;
+            margin: 10px 0;
+        }
+
+        .item span {
+            color: red;
+        }
+
+        span.required {
+            margin-left: 0;
+            color: red;
+        }
+
+        input[type="date"]::-webkit-inner-spin-button {
+            display: none;
+
+        }
+
+        .item i,
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            position: absolute;
+            font-size: 20px;
+            color: #a9a9a9;
+        }
+
+        .item i {
+            right: 2%;
+            top: 28px;
+            z-index: 1;
+        }
+
+        [type="date"]::-webkit-calendar-picker-indicator {
+            right: 1%;
+            z-index: 2;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .btn-block {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        button {
+            width: 170px;
+            height: 70px;
+            padding: 20px;
+            border: none;
+            border-radius: 5px;
+            background: #008000;
+            color: #fff;
+            cursor: pointer;
+            font-family: 'Arial';
+            font-size: 0.8em;
+        }
+
+        button:hover {
+            background: #00FF00;
+        }
+
+        @media (min-width: 568px) {
+
+            .name-item,
+            .city-item {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            nav {
+                position: fixed;
+            }
     </style>
-    </head>
-    <body>
+</head>
+
+<body>
     <nav class="navbar navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Home</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Search Area</a>
+                    <a class="nav-link" href="/search">Search Area</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Report Abduction</a>
+                    <a class="nav-link" href="/report">Report Abduction</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">SAPS Alert</a>
@@ -184,8 +228,10 @@ font-size:0.8em;
         </div>
     </nav>
 
+
     <form action="/report">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <div class="banner">
             <h1>safeGuard24/7 Abduction Report Form</h1>
         </div>
@@ -198,7 +244,8 @@ font-size:0.8em;
         <br>
 
         <div class="item">
-            <h2><img src="think2.png" class="img2">Do you feel unsafe and wish to connect and alert the police when you in trouble?<img src="think1.png" class="img1"></h2>
+            <h2><img src="think2.png" class="img2">Do you feel unsafe and wish to connect and alert the police when you
+                in trouble?<img src="think1.png" class="img1"></h2>
         </div>
         <br>
         <br>
@@ -209,20 +256,17 @@ font-size:0.8em;
         </div>
 
     </form>
-            <div class="row" id="crime_btn">
-            <div class="btn-block col-6">
-               <a href="/">  <button type="submit" class="btn btn-danger" href="/report"><b>Report Crime</b></button></a> 
-            </div>
-            <div class="btn-block col-6">
-                <button type="submit" class="btn btn-success" href="/search"><b>Safe Street</b></button>
-            </div>
-<<<<<<< HEAD
+    <div class="row" id="crime_btn">
+        <div class="btn-block col-6">
+            <a href="/report"> <button type="submit" class="btn btn-danger" href="/report"><b>Report Crime</b></button></a>
         </div>
+        <div class="btn-block col-6">
+            <a href="/search"><button type="submit" class="btn btn-success" href="/search"><b>Safe Street</b></button></a>
+        </div>
+    </div>
     </form>
-=======
-</div>
 
-
+    </div>
 
 
     </div>
@@ -231,13 +275,20 @@ font-size:0.8em;
 
     <hr>
 
-</div>
+    </div>
 
->>>>>>> 872b45a7df296707eff6d40f89551aec0ac05aa3
+
 </body>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
- </html>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+
+</html>
