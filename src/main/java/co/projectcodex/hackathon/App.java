@@ -113,26 +113,54 @@ public class App {
                     		victimLastName);
                 });
                 
+                List<String> areaCount = jdbi.withHandle(handle ->
+                handle.createQuery("select * from area where name = ?")
+                .bind(0, location)
+                .mapTo(String.class)
+                .list());
+                
+                if(areaCount.size() == 0)
+                {
+                    jdbi.useHandle(h -> {
+                        h.execute("insert into area (name, incident_count) values (?, ?)",
+                        		location,
+                        		1);
+                    });
+                } else
+                {
+                    jdbi.useHandle(h -> {
+                        h.execute("update area set incident_count = incident_count+1 where name = ?",
+                        		location);
+                    });
+                }
+                
+                List<String> areaId = jdbi.withHandle(handle ->
+                handle.createQuery("select id from area where name = ?")
+                .bind(0, location)
+                .mapTo(String.class)
+                .list());
+                
+                int areaIdValue = Integer.parseInt(areaId.get(0));
+                
+                
                 return new ModelAndView(map, "reportform.handlebars");
 
             }, new HandlebarsTemplateEngine());
-/*
-            post("/person", (req, res) -> {
 
-                String firstName = req.queryParams("firstName");
-                String lastName = req.queryParams("lastName");
-                String email = req.queryParams("email");
+            
+            get("/search", (req, res) -> {
+                Map<String, Object> map = new HashMap<>();
+                
+                return new ModelAndView(map, "search.handlebars");
 
-                jdbi.useHandle(h -> {
-                    h.execute("insert into users (first_name, last_name, email) values (?, ?, ?)",
-                            firstName,
-                            lastName,
-                            email);
-                });
+            }, new HandlebarsTemplateEngine());
+            
+            get("/success", (req, res) -> {
+                Map<String, Object> map = new HashMap<>();
+                
+                return new ModelAndView(map, "success.handlebars");
 
-                res.redirect("/");
-                return "";
-            });*/
+            }, new HandlebarsTemplateEngine());
 
         } catch (Exception ex) {
             ex.printStackTrace();

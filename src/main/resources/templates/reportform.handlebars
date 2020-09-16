@@ -141,9 +141,37 @@
     </style>
 </head>
 <body>
-
+<!-------navbar----->
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Search Area</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Report Abduction</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">SAPS Alert</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">News</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
+            </li>
+        </ul>
+    </div>
+</nav>
 <div class="testbox">
-    <form action="/report"  method="post">
+    <form action="/">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <div class="banner">
             <h1>safeGaurd24/7 Abduction Report Form</h1>
@@ -153,9 +181,9 @@
 
             <div class="name-item">
                 <p>First Name<span class="required">*</span></p>
-                <input type="text" name="witness_firstname" placeholder="" required="required"/>
+                <input type="text" name="witness_name" placeholder="" required="required"/>
                 <p>Last Name<span class="required">*</span></p>
-                <input type="text" name="witness_lastname" placeholder="" />
+                <input type="text" name="witness_name" placeholder="" />
             </div>
         </div>
         <div class="item">
@@ -169,19 +197,42 @@
 
             <div class="name-item">
                 <p>First Name<span class="required">*</span></p>
-                <input type="text" name="victim_firstname" placeholder="" />
+                <input type="text" name="victim_name" placeholder="" />
                 <p>Last Name<span class="required">*</span></p>
-                <input type="text" name="victim_lastname" placeholder="" />
+                <input type="text" name="victim_name" placeholder="" />
             </div>
         </div>
 
         <div class="item">
             <p>Age<span class="required">*</span></p>
-            <input type="" name="age"/>
+            <input type="" name=""/>
+        </div>
+        <p>Gender<span class="required">*</span></p>
+        <div class="item">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+            <label class="form-check-label" for="exampleRadios2">
+                Non-Binary
+            </label>
+        </div>
+
+        <div class="item">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" checked>
+            <label class="form-check-label" for="exampleRadios1">
+                Female
+            </label>
         </div>
         <div class="item">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option2">
+            <label class="form-check-label" for="exampleRadios2">
+                Male
+            </label>
+        </div>
+        <select id="cities">
+            <option value="--Select a City--">--Select a City--</option>
+        </select>
+        <div class="item">
             <p>Area of Abduction<span class="required">*</span></p>
-            <input type="" name="location"/>
+            <input type="" name=""/>
         </div>
         <div class="item">
             <p>Abduction Date<span class="required">*</span></p>
@@ -206,4 +257,9 @@
         </div>
     </form>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </body>
+</html>
