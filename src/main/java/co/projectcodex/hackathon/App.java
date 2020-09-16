@@ -113,27 +113,31 @@ public class App {
                     		victimLastName);
                 });
                 
+                List<String> areaCount = jdbi.withHandle(handle ->
+                handle.createQuery("select * from area where name = ?")
+                .bind(0, location)
+                .mapTo(String.class)
+                .list());
+                
+                if(areaCount.size() == 0)
+                {
+                    jdbi.useHandle(h -> {
+                        h.execute("insert into area (name, incident_count) values (?, ?)",
+                        		location,
+                        		1);
+                    });
+                } else
+                {
+                    jdbi.useHandle(h -> {
+                        h.execute("update area set incident_count = incident_count+1 where name = ?",
+                        		location);
+                    });
+                }
                 
                 return new ModelAndView(map, "reportform.handlebars");
 
             }, new HandlebarsTemplateEngine());
-/*
-            post("/person", (req, res) -> {
 
-                String firstName = req.queryParams("firstName");
-                String lastName = req.queryParams("lastName");
-                String email = req.queryParams("email");
-
-                jdbi.useHandle(h -> {
-                    h.execute("insert into users (first_name, last_name, email) values (?, ?, ?)",
-                            firstName,
-                            lastName,
-                            email);
-                });
-
-                res.redirect("/");
-                return "";
-            });*/
             
             get("/search", (req, res) -> {
                 Map<String, Object> map = new HashMap<>();
