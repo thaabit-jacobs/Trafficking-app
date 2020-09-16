@@ -142,9 +142,8 @@
 </head>
 <body>
 
-
 <div class="testbox">
-    <form action="/">
+    <form action="/report"  method="post">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <div class="banner">
             <h1>safeGaurd24/7 Abduction Report Form</h1>
@@ -154,9 +153,9 @@
 
             <div class="name-item">
                 <p>First Name<span class="required">*</span></p>
-                <input type="text" name="witness_name" placeholder="" required="required"/>
+                <input type="text" name="witness_firstname" placeholder="" required="required"/>
                 <p>Last Name<span class="required">*</span></p>
-                <input type="text" name="witness_name" placeholder="" />
+                <input type="text" name="witness_lastname" placeholder="" />
             </div>
         </div>
         <div class="item">
@@ -170,20 +169,19 @@
 
             <div class="name-item">
                 <p>First Name<span class="required">*</span></p>
-                <input type="text" name="victim_name" placeholder="" />
+                <input type="text" name="victim_firstname" placeholder="" />
                 <p>Last Name<span class="required">*</span></p>
-                <input type="text" name="victim_name" placeholder="" />
+                <input type="text" name="victim_lastname" placeholder="" />
             </div>
         </div>
 
         <div class="item">
-            <p>D.O.B<span class="required">*</span></p>
-            <input type="date" name="victim_bdate" required/>
-            <i class="fas fa-calendar-alt"></i>
+            <p>Age<span class="required">*</span></p>
+            <input type="" name="age"/>
         </div>
         <div class="item">
             <p>Area of Abduction<span class="required">*</span></p>
-            <input type="" name=""/>
+            <input type="" name="location"/>
         </div>
         <div class="item">
             <p>Abduction Date<span class="required">*</span></p>

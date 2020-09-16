@@ -49,35 +49,66 @@ public class App {
 
     public static void main(String[] args) {
         try  {
-
-
+        	
             staticFiles.location("/public");
             port(getHerokuAssignedPort());
 
-            Jdbi jdbi = getJdbiDatabaseConnection("jdbc:postgresql://localhost/spark_hbs_jdbi");
+            Jdbi jdbi = getJdbiDatabaseConnection("jdbc:postgresql://localhost/trackerdb?user=thaabit&password=1234");
 
 
             get("/", (req, res) -> {
-
-                List<Person> people = jdbi.withHandle((h) -> {
-                    List<Person> thePeople = h.createQuery("select first_name, last_name, email from users")
-                            .mapToBean(Person.class)
-                            .list();
-                    return thePeople;
-                });
-
-
                 Map<String, Object> map = new HashMap<>();
-                map.put("people", people);
-                map.put("data", "[2, 19, 3, 5, 2, 23]");
-                map.put("theGraphLabel", "The graph label");
-                map.put("labels", "['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange']");
 
                 return new ModelAndView(map, "index.handlebars");
 
             }, new HandlebarsTemplateEngine());
+            
+            get("/report", (req, res) -> {
+                Map<String, Object> map = new HashMap<>();
+                
+                return new ModelAndView(map, "reportform.handlebars");
 
+            }, new HandlebarsTemplateEngine());
+            
+            post("/report", (req, res) -> {
+                Map<String, Object> map = new HashMap<>();
+                
+                String witnessFirstName = req.queryParams("witness_firstname");
+                String witnessLastName = req.queryParams("witness_lastname");
+                String witnessContact = req.queryParams("witness_phone");
+                
+                String victimFirstName = req.queryParams("victim_firstname");
+                String victimLastName = req.queryParams("victim_lastname");
+                String victimAge = req.queryParams("age");
+                
+                String area = req.queryParams("location");
+                
+                String date = req.queryParams("bdate");
+                String time = req.queryParams("btime");
+                
+                String descrip = "test description";
+                
 
+                jdbi.useHandle(h -> {
+                    h.execute("insert into witness (first_name, last_name, contact) values (?, ?, ?)",
+                    		witnessFirstName,
+                    		witnessLastName,
+                    		witnessContact);
+                });
+                
+                jdbi.useHandle(h -> {
+                    h.execute("insert into victim (first_name, last_name, age) values (?, ?, ?)",
+                    		victimFirstName,
+                    		victimLastName,
+                    		Integer.parseInt(victimAge));
+                });
+                
+                
+                
+                return new ModelAndView(map, "reportform.handlebars");
+
+            }, new HandlebarsTemplateEngine());
+/*
             post("/person", (req, res) -> {
 
                 String firstName = req.queryParams("firstName");
@@ -93,11 +124,11 @@ public class App {
 
                 res.redirect("/");
                 return "";
-            });
+            });*/
 
         } catch (Exception ex) {
             ex.printStackTrace();
         }
 
-    }
-}
+    }}
+        
