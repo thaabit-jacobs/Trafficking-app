@@ -134,6 +134,15 @@ public class App {
                     });
                 }
                 
+                List<String> areaId = jdbi.withHandle(handle ->
+                handle.createQuery("select id from area where name = ?")
+                .bind(0, location)
+                .mapTo(String.class)
+                .list());
+                
+                int areaIdValue = Integer.parseInt(areaId.get(0));
+                
+                
                 return new ModelAndView(map, "reportform.handlebars");
 
             }, new HandlebarsTemplateEngine());
@@ -143,6 +152,13 @@ public class App {
                 Map<String, Object> map = new HashMap<>();
                 
                 return new ModelAndView(map, "search.handlebars");
+
+            }, new HandlebarsTemplateEngine());
+            
+            get("/success", (req, res) -> {
+                Map<String, Object> map = new HashMap<>();
+                
+                return new ModelAndView(map, "success.handlebars");
 
             }, new HandlebarsTemplateEngine());
 
