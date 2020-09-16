@@ -79,7 +79,7 @@ public class App {
                 
                 String victimFirstName = req.queryParams("victim_firstname");
                 String victimLastName = req.queryParams("victim_lastname");
-                String victimAge = req.queryParams("victim_bdate");
+                String victimAge = req.queryParams("age");
                 
                 String area = req.queryParams("location");
                 
@@ -94,6 +94,13 @@ public class App {
                     		witnessFirstName,
                     		witnessLastName,
                     		witnessContact);
+                });
+                
+                jdbi.useHandle(h -> {
+                    h.execute("insert into victim (first_name, last_name, age) values (?, ?, ?)",
+                    		victimFirstName,
+                    		victimLastName,
+                    		Integer.parseInt(victimAge));
                 });
                 
                 
