@@ -4,55 +4,196 @@
 
 <div class="container">
     {{> menu.handlebars}}
+    <!DOCTYPE html>
+    <html>
+    <head>
 
-    <div class="row">
-        <div class="col-6">
-            <h2>Add name</h2>
-            <form method="post" action="/person">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">First name</label>
-                    <input type="text" class="form-control {{firstNameInvalid}}" name="firstName">
-                    <small id="emailHelp" class="form-text text-muted">What does your friends call you</small>
-                    <div id="emailHelp" class="invalid-feedback">
-                        Please provide a valid name.
-                    </div>
-                </div>
+        <style>
+      html, body {
+      min-height: 100%;
+      text-align:center;
+      }
+      body, div, form, input, select, textarea, p {
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: #666;
+      line-height: 22px;
+      }
+      img{
+      height 100px;
+      width:100px;
+      }
 
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Last name</label>
-                    <input type="text" class="form-control" name="lastName">
-                    <small id="emailHelp" class="form-text text-muted">What is ths name after the name your friends
-                        called you.</small>
-                </div>
+      #crime_btn{
+      margin-top:10em;
+      }
+      h1 {
+      position: absolute;
+      margin: 0;
+      line-height: 42px;
+      font-size: 42px;
+      color: #fff;
+      z-index: 2;
+      }
+      .testbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: inherit;
+      padding: 20px;
+      }
+      form {
+      width: 100%;
+      padding: 20px;
+      border-radius: 6px;
+      background: #fff;
+      box-shadow: 0 0 25px 0 #d6e0f5;
+      }
+      .banner {
+      position: relative;
+      height: 300px;
+      background-image: url("https://raw.githubusercontent.com/thaabit-jacobs/Trafficking-app/master/images/banner2.jpeg");
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      }
+      .banner::after {
+      content: "";
+      background-color: rgba(0, 0, 0, 0.3);
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      }
+      input, select, textarea {
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      }
+      input {
+      width: calc(100% - 10px);
+      padding: 5px;
+      }
+      input[type="date"] {
+      padding: 4px 5px;
+      }
+      select {
+      width: 100%;
+      padding: 7px 0;
+      background: transparent;
+      }
+      textarea {
+      width: calc(100% - 12px);
+      padding: 5px;
+      }
+          .item input:hover, .item select:hover, .item textarea:hover {
+      border: 1px solid transparent;
+      box-shadow: 0 0 6px 0 #d6e0f5;
+      color: #d6e0f5;
+      }
+      .item {
+      position: relative;
+      margin: 10px 0;
+      }
+      .item span {
+      color: red;
+      }
+      span.required {
+      margin-left: 0;
+      color: red;
+      }
+      input[type="date"]::-webkit-inner-spin-button {
+      display: none;
 
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email</label>
-                    <input type="email" class="form-control" name="email">
-                    <small id="emailHelp" class="form-text text-muted">Where do we email you.</small>
-                </div>
+      }
+      .item i, input[type="date"]::-webkit-calendar-picker-indicator {
+      position: absolute;
+      font-size: 20px;
+      color: #a9a9a9;
+      }
+      .item i {
+      right: 2%;
+      top: 28px;
+      z-index: 1;
+      }
+      [type="date"]::-webkit-calendar-picker-indicator {
+      right: 1%;
+      z-index: 2;
+      opacity: 0;
+      cursor: pointer;
+      }
+      .btn-block {
+      margin-top: 10px;
+      text-align: center;
+      }
+      button {
+      width: 170px;
+       height: 70px;
+      padding: 20px;
+      border: none;
+      border-radius: 5px;
+      background:#008000;
+      color: #fff;
+      cursor: pointer;
+      font-family: 'Arial';
+font-size:0.8em;
+      }
+      button:hover {
+      background: #00FF00;
+      }
+      @media (min-width: 568px) {
+      .name-item, .city-item {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      }
 
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+    </style>
+    </head>
+    <body>
+
+
+    <form action="/">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <div class="banner">
+            <h1>safeGaurd24/7 Abduction Report Form</h1>
         </div>
-        <div class="col-6">
-            <h2>Names</h2>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>First name</th>
-                    <th>Last name</th>
-                    <th>Email</th>
-                </tr>
-                </thead>
-                {{#each people}}
-                    <tr>
-                        <td>{{firstName}}</td>
-                        <td>{{lastName}}</td>
-                        <td>{{email}}</td>
-                    </tr>
-                {{/each}}
-            </table>
+        <br>
+        <br>
+        <div class="item">
+            <h2>Do you want to report a crime or find safe streets in your area?</h2>
         </div>
+        <br>
+        <br>
+
+        <div class="item">
+            <h2><img src="../public/think.jpg" class="img2">Do you feel unsafe and wish to connect and alert the police when you in trouble?<img src="../public/think2.jpg" class="img1"></h2>
+        </div>
+
+        <br>
+        <br>
+        <div class="item">
+            <h2>To Report crime use the red button or use on the green button to get safe streets around you.</h2>
+        </div>
+        <div class="row" id="crime_btn">
+            <div class="btn-block col-6">
+                <button type="submit" class="btn btn-danger" href="/"><b>Report Crime</b></button>
+            </div>
+            <div class="btn-block col-6">
+                <button type="submit" class="btn btn-success" href="/"><b>Safe Street</b></button>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+
+
+
     </div>
 
     <hr>
