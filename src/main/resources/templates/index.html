@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>templating</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/index.css">
+    <script src="app.js"></script>
+</head>
+<body>
+
+<div class="row"  >
+    <div class="col-12" >
+        <header>
+            <div class="collapse bg-dark" id="navbarHeader">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 col-md-7 py-4">
+                            <h4 class="text-white">About</h4>
+                            <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+                        </div>
+                        <div class="col-sm-4 offset-md-1 py-4">
+                            <h4 class="text-white">Contact</h4>
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="text-white">Follow on Twitter</a></li>
+                                <li><a href="#" class="text-white">Like on Facebook</a></li>
+                                <li><a href="#" class="text-white">Email me</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar navbar-dark bg-dark shadow-sm">
+                <div class="container d-flex justify-content-between">
+                    <a href="#" class="navbar-brand d-flex align-items-center">
+                        <strong>Spark Java, Jdbi, Postgres & Bootstrap</strong>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+    </div>
+</div>
+<div class="container">
+
+    <div class="row">
+
+        <img src="images.jpeg">
+
+        <h2>Do you feel unsafe when walking or driving alone?</h2>
+        <h2>Have you thought of alerting the police or your loved ones when you are in trouble?</h2>
+        <h3>Click <b>REPORT CRIME BUTTON</b> for alerting the police and loved ones or click <b>Safe Street</b> button to get the safe street near you.</h3>
+        
+        <br>
+        
+        <form method="post" action="/person">
+
+
+                    <button type="submit" class="btn btn-danger">Report Crime</button>
+
+                    <button type="submit" class="btn btn-success">Safe Streets</button>
+
+
+        </form>
+    </div>
+
+
+
+<hr>
+
+<div class="row" >
+
+    <div class="col-12" >
+        <h2>Links to UI libraries</h2>
+        <ul>
+            <li><a href="https://www.chartjs.org/"> chart.js </a></li>
+            <li><a href="https://getbootstrap.com/"> Bootstrap CSS </a></li>
+            <li><a href="https://getbootstrap.com/docs/4.5/examples/"> Bootstrap Templates </a></li>
+        </ul>
+    </div>
+</div>
+
+</div>
+</body>
+</html>
