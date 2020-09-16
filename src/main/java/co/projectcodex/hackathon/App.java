@@ -3,12 +3,16 @@ package co.projectcodex.hackathon;
 import java.util.List;
 
 import org.jdbi.v3.core.Jdbi;
+import org.jdbi.v3.core.statement.Query;
+
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -81,7 +85,7 @@ public class App {
                 String victimLastName = req.queryParams("victim_lastname");
                 String victimAge = req.queryParams("age");
                 
-                String area = req.queryParams("location");
+                String location = req.queryParams("location").toLowerCase();
                 
                 String date = req.queryParams("bdate");
                 String time = req.queryParams("btime");
@@ -103,7 +107,11 @@ public class App {
                     		Integer.parseInt(victimAge));
                 });
                 
-                
+                jdbi.useHandle(h -> {
+                    h.execute("insert into incident (incident_time, descrip) values (?, ?)",
+                    		LocalDate.parse(date),
+                    		victimLastName);
+                });
                 
                 return new ModelAndView(map, "reportform.handlebars");
 
