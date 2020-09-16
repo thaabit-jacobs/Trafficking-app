@@ -157,7 +157,7 @@ font-size:0.8em;
     <body>
 
 
-    <form action="/">
+    <form action="/report">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <div class="banner">
             <h1>safeGaurd24/7 Abduction Report Form</h1>
@@ -179,16 +179,18 @@ font-size:0.8em;
         <div class="item">
             <h2>To Report crime use the red button or use on the green button to get safe streets around you.</h2>
         </div>
-        <div class="row" id="crime_btn">
-            <div class="btn-block col-6">
-                <button type="submit" class="btn btn-danger" href="/"><b>Report Crime</b></button>
-            </div>
-            <div class="btn-block col-6">
-                <button type="submit" class="btn btn-success" href="/"><b>Safe Street</b></button>
-            </div>
+
         </div>
 
     </form>
+            <div class="row" id="crime_btn">
+            <div class="btn-block col-6">
+               <a href="/report">  <button type="submit" class="btn btn-danger" href="/report"><b>Report Crime</b></button></a> 
+            </div>
+            <div class="btn-block col-6">
+             <a href="/search"><button type="submit" class="btn btn-success" href="/search"><b>Safe Street</b></button></a> 
+                
+            </div>
 </div>
 
 
@@ -198,21 +200,7 @@ font-size:0.8em;
 
     <hr>
 
-    {{> footer.handlebars}}
-
     <hr>
-
-    <div class="row" >
-
-        <div class="col-12" >
-            <h2>Links to UI libraries</h2>
-            <ul>
-                <li><a href="https://www.chartjs.org/"> chart.js </a></li>
-                <li><a href="https://getbootstrap.com/"> Bootstrap CSS </a></li>
-                <li><a href="https://getbootstrap.com/docs/4.5/examples/"> Bootstrap Templates </a></li>
-            </ul>
-        </div>
-    </div>
 
 </div>
 

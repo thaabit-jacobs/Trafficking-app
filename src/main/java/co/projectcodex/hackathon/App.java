@@ -113,6 +113,7 @@ public class App {
                     		victimLastName);
                 });
                 
+                
                 return new ModelAndView(map, "reportform.handlebars");
 
             }, new HandlebarsTemplateEngine());
@@ -133,6 +134,13 @@ public class App {
                 res.redirect("/");
                 return "";
             });*/
+            
+            get("/search", (req, res) -> {
+                Map<String, Object> map = new HashMap<>();
+                
+                return new ModelAndView(map, "search.handlebars");
+
+            }, new HandlebarsTemplateEngine());
 
         } catch (Exception ex) {
             ex.printStackTrace();
