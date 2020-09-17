@@ -13,6 +13,7 @@ import java.net.URISyntaxException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -46,6 +47,14 @@ public class App {
     }
 
     public static void main(String[] args) {
+    	List<String> streets = new ArrayList<>();
+    	streets.add("Long street");
+    	streets.add("Bree street");
+    	streets.add("Loop street");
+    	streets.add("Kloof street");
+    	streets.add("Adderley street");
+    	streets.add("Lower main road, Observatory");
+   
         try  {
         	
             staticFiles.location("/public");
