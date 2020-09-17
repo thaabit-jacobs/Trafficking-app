@@ -227,12 +227,18 @@
                Male
             </label>
         </div>
-        <select id="cities">
-            <option value="--Select a City--">--Select a City--</option>
-        </select>
+
         <div class="item">
             <p>Area of Abduction<span class="required">*</span></p>
-            <input type="" name=""/>
+            <select>
+                <option value=""></option>
+                <option value="">Long Street</option>
+                <option value="2">Bree Street</option>
+                <option value="3">Loop Street</option>
+                <option value="4">Kloof Street</option>
+                <option value="4">Adderley Street</option>
+                <option value="4">Lower Main Road, Observatory</option>
+            </select>
         </div>
         <div class="item">
             <p>Abduction Date<span class="required">*</span></p>
@@ -240,20 +246,12 @@
             <i class="fas fa-calendar-alt"></i>
         </div>
         <div class="item">
-            <p>Abduction Time(an estimation if you are uncertain)</p>
-            <input type="time" name="btime" required/>
-        </div>
-        <div class="item">
-            <p>Description of Abduction<span class="required">*</span></p>
+            <p>Description of Abduction</p>
             <textarea rows="5"></textarea>
         </div>
 
-        <div class="item">
-            <p>Any additional information that may be helpful to the police...</p>
-            <textarea rows="5"></textarea>
-        </div>
         <div class="btn-block">
-            <button type="submit" href="/success">Send</button>
+            <button type="submit" href="/">Send</button>
         </div>
     </form>
 </div>
