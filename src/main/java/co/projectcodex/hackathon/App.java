@@ -38,14 +38,8 @@ public class App {
             String username = hostParts[0];
             String password = hostParts[1];
             String host = uri.getHost();
-
-            int port = uri.getPort();
-
-            String path = uri.getPath();
-            String url = String.format("jdbc:postgresql://%s:%s%s", host, port, path);
-
-            return Jdbi.create(url, username, password);
         }
+            
 
         return Jdbi.create(defualtJdbcUrl);
 
@@ -143,7 +137,7 @@ public class App {
                 int areaIdValue = Integer.parseInt(areaId.get(0));
                 
                 
-                return new ModelAndView(map, "reportform.handlebars");
+                return new ModelAndView(map, "success.handlebars");
 
             }, new HandlebarsTemplateEngine());
 
@@ -151,7 +145,18 @@ public class App {
             get("/search", (req, res) -> {
                 Map<String, Object> map = new HashMap<>();
                 
-                return new ModelAndView(map, "search.handlebars");
+                return new ModelAndView(map, "searchDemo.handlebars");
+
+            }, new HandlebarsTemplateEngine());
+
+            post("/search", (req, res) -> {
+                Map<String, Object> map = new HashMap<>();
+                
+                String location = req.queryParams("location");
+
+                //System.out.println(location);
+
+                return new ModelAndView(map, "searchDemo.handlebars");
 
             }, new HandlebarsTemplateEngine());
             
