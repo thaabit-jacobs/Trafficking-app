@@ -38,14 +38,8 @@ public class App {
             String username = hostParts[0];
             String password = hostParts[1];
             String host = uri.getHost();
-
-            int port = uri.getPort();
-
-            String path = uri.getPath();
-            String url = String.format("jdbc:postgresql://%s:%s%s", host, port, path);
-
-            return Jdbi.create(url, username, password);
         }
+            
 
         return Jdbi.create(defualtJdbcUrl);
 
@@ -113,26 +107,65 @@ public class App {
                     		victimLastName);
                 });
                 
-                return new ModelAndView(map, "reportform.handlebars");
+                List<String> areaCount = jdbi.withHandle(handle ->
+                handle.createQuery("select * from area where name = ?")
+                .bind(0, location)
+                .mapTo(String.class)
+                .list());
+                
+                if(areaCount.size() == 0)
+                {
+                    jdbi.useHandle(h -> {
+                        h.execute("insert into area (name, incident_count) values (?, ?)",
+                        		location,
+                        		1);
+                    });
+                } else
+                {
+                    jdbi.useHandle(h -> {
+                        h.execute("update area set incident_count = incident_count+1 where name = ?",
+                        		location);
+                    });
+                }
+                
+                List<String> areaId = jdbi.withHandle(handle ->
+                handle.createQuery("select id from area where name = ?")
+                .bind(0, location)
+                .mapTo(String.class)
+                .list());
+                
+                int areaIdValue = Integer.parseInt(areaId.get(0));
+                
+                
+                return new ModelAndView(map, "success.handlebars");
 
             }, new HandlebarsTemplateEngine());
-/*
-            post("/person", (req, res) -> {
 
-                String firstName = req.queryParams("firstName");
-                String lastName = req.queryParams("lastName");
-                String email = req.queryParams("email");
+            
+            get("/search", (req, res) -> {
+                Map<String, Object> map = new HashMap<>();
+                
+                return new ModelAndView(map, "searchDemo.handlebars");
 
-                jdbi.useHandle(h -> {
-                    h.execute("insert into users (first_name, last_name, email) values (?, ?, ?)",
-                            firstName,
-                            lastName,
-                            email);
-                });
+            }, new HandlebarsTemplateEngine());
 
-                res.redirect("/");
-                return "";
-            });*/
+            post("/search", (req, res) -> {
+                Map<String, Object> map = new HashMap<>();
+                
+                String location = req.queryParams("location");
+
+                //System.out.println(location);
+
+                return new ModelAndView(map, "searchDemo.handlebars");
+
+            }, new HandlebarsTemplateEngine());
+            
+            get("/success", (req, res) -> {
+                Map<String, Object> map = new HashMap<>();
+                
+                return new ModelAndView(map, "success.handlebars");
+
+            }, new HandlebarsTemplateEngine());
 
         } catch (Exception ex) {
             ex.printStackTrace();
