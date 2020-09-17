@@ -80,14 +80,24 @@ public class App {
             
             get("/search", (req, res) -> {
                 Map<String, Object> map = new HashMap<>();
-                int longCount = jdbi.withHandle(h -> h.createQuery("select count(street) from persons where street='Loop Street';").mapTo(int.class).findOnly());
+                int longCount = jdbi.withHandle(h -> h.createQuery("select count(street) from persons where street='Long Street';").mapTo(int.class).findOnly());
                
                 int BreeCount = jdbi.withHandle(h -> h.createQuery("select count(street) from persons where street='Bree Street';").mapTo(int.class).findOnly());
                 
-                int BreeCount = jdbi.withHandle(h -> h.createQuery("select count(street) from persons where street='Bree Street';").mapTo(int.class).findOnly());
+                int loopCount = jdbi.withHandle(h -> h.createQuery("select count(street) from persons where street='Loop Street';").mapTo(int.class).findOnly());
+                
+                int kloofCount = jdbi.withHandle(h -> h.createQuery("select count(street) from persons where street='Kloof Street';").mapTo(int.class).findOnly());
+                
+                int addCount = jdbi.withHandle(h -> h.createQuery("select count(street) from persons where street='Adderley Street';").mapTo(int.class).findOnly());
+                
+                int obzCount = jdbi.withHandle(h -> h.createQuery("select count(street) from persons where street='Lower Main Road, Observatory';").mapTo(int.class).findOnly());
                 
                 map.put("longCount", longCount);
                 map.put("BreeCount", BreeCount);
+                map.put("loopCount", loopCount);
+                map.put("kloofCount", kloofCount);
+                map.put("adderCount", addCount);
+                map.put("lowerCount", obzCount);
                 
                 return new ModelAndView(map, "searchDemo.handlebars");
 
@@ -154,6 +164,3 @@ public class App {
 
     }}
         
-//class GetStreets{
-//
-//}
