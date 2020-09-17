@@ -76,9 +76,37 @@ public class App {
                 return new ModelAndView(map, "reportform.handlebars");
 
             }, new HandlebarsTemplateEngine());
+
             
-            post("/report", (req, res) -> {
+            get("/search", (req, res) -> {
                 Map<String, Object> map = new HashMap<>();
+                int longCount = jdbi.withHandle(h -> h.createQuery("select count(street) from persons where street='Loop Street';").mapTo(int.class).findOnly());
+               
+                int BreeCount = jdbi.withHandle(h -> h.createQuery("select count(street) from persons where street='Bree Street';").mapTo(int.class).findOnly());
+                
+                int BreeCount = jdbi.withHandle(h -> h.createQuery("select count(street) from persons where street='Bree Street';").mapTo(int.class).findOnly());
+                
+                map.put("longCount", longCount);
+                map.put("BreeCount", BreeCount);
+                
+                return new ModelAndView(map, "searchDemo.handlebars");
+
+            }, new HandlebarsTemplateEngine());
+
+            post("/search", (req, res) -> {
+                Map<String, Object> map = new HashMap<>();
+                
+
+
+                //System.out.println(location);
+
+                return new ModelAndView(map, "searchDemo.handlebars");
+
+            }, new HandlebarsTemplateEngine());
+            
+            post("/success", (req, res) -> {
+                Map<String, Object> map = new HashMap<>();
+                
                 
                 String witnessFirstName = req.queryParams("witness_firstname");
                 String witnessLastName = req.queryParams("witness_lastname");
@@ -88,89 +116,33 @@ public class App {
                 String victimLastName = req.queryParams("victim_lastname");
                 String victimAge = req.queryParams("age");
                 
-                String location = req.queryParams("location").toLowerCase();
+                
+                String gender = req.queryParams("gender");
+                
+                String street = req.queryParams("street");
                 
                 String date = req.queryParams("bdate");
-                String time = req.queryParams("btime");
                 
-                String descrip = "test description";
+                System.out.println(witnessFirstName);
+                System.out.println(witnessLastName);
+                System.out.println(witnessContact);
+                System.out.println(victimFirstName);
+                System.out.println(victimLastName);
+                System.out.println(victimAge);
+                System.out.println(gender);
+                System.out.println(street);
+                System.out.println(date);
                 
 
                 jdbi.useHandle(h -> {
-                    h.execute("insert into witness (first_name, last_name, contact) values (?, ?, ?)",
-                    		witnessFirstName,
-                    		witnessLastName,
-                    		witnessContact);
-                });
-                
-                jdbi.useHandle(h -> {
-                    h.execute("insert into victim (first_name, last_name, age) values (?, ?, ?)",
+                    h.execute("insert into persons (first_name, last_name, age, gender, street, date_incident) values (?, ?, ?, ?, ?, ?)",
                     		victimFirstName,
                     		victimLastName,
-                    		Integer.parseInt(victimAge));
+                    		Integer.parseInt(victimAge),
+                    		gender,
+                    		street,
+                    		date);
                 });
-                
-                jdbi.useHandle(h -> {
-                    h.execute("insert into incident (incident_time, descrip) values (?, ?)",
-                    		LocalDate.parse(date),
-                    		victimLastName);
-                });
-                
-                List<String> areaCount = jdbi.withHandle(handle ->
-                handle.createQuery("select * from area where name = ?")
-                .bind(0, location)
-                .mapTo(String.class)
-                .list());
-                
-                if(areaCount.size() == 0)
-                {
-                    jdbi.useHandle(h -> {
-                        h.execute("insert into area (name, incident_count) values (?, ?)",
-                        		location,
-                        		1);
-                    });
-                } else
-                {
-                    jdbi.useHandle(h -> {
-                        h.execute("update area set incident_count = incident_count+1 where name = ?",
-                        		location);
-                    });
-                }
-                
-                List<String> areaId = jdbi.withHandle(handle ->
-                handle.createQuery("select id from area where name = ?")
-                .bind(0, location)
-                .mapTo(String.class)
-                .list());
-                
-                int areaIdValue = Integer.parseInt(areaId.get(0));
-                
-                
-                return new ModelAndView(map, "success.handlebars");
-
-            }, new HandlebarsTemplateEngine());
-
-            
-            get("/search", (req, res) -> {
-                Map<String, Object> map = new HashMap<>();
-                
-                return new ModelAndView(map, "searchDemo.handlebars");
-
-            }, new HandlebarsTemplateEngine());
-
-            post("/search", (req, res) -> {
-                Map<String, Object> map = new HashMap<>();
-                
-                String location = req.queryParams("location");
-
-                //System.out.println(location);
-
-                return new ModelAndView(map, "searchDemo.handlebars");
-
-            }, new HandlebarsTemplateEngine());
-            
-            get("/success", (req, res) -> {
-                Map<String, Object> map = new HashMap<>();
                 
                 return new ModelAndView(map, "success.handlebars");
 
