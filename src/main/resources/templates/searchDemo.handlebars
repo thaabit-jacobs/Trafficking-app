@@ -63,6 +63,7 @@
             transform: translate(-50%, -50%);
             font-size: 18px;
         }
+<<<<<<< HEAD
          .banner {
             position: relative;
             height: 300px;
@@ -80,6 +81,11 @@
             position: absolute;
             width: 100%;
             height: 100%;
+=======
+        .table
+        {
+        	
+>>>>>>> 8d8945fc62b73ffffe7aedcfba1d0b614f0700bc
         }
     </style>
 
@@ -134,38 +140,6 @@
             </button>
         </div>
     </form>
-    
-    <table>
-  <tr>
-    <th>Street</th>
-    <th>Incident count</th>
-  </tr>
-  <tr>
-    <td>Long street</td>
-    <td>{{longCount}}</td>
-  </tr>
-  <tr>
-    <td>Bree street</td>
-    <td>{{BreeCount}}</td>
-  </tr>
-    <tr>
-    <td>Loop street</td>
-    <td>{{loopCount}}</td>
-  </tr>
-    <tr>
-    <td>Kloof street</td>
-    <td>{{kloofCount}}</td>
-  </tr>
-    <tr>
-    <td>Adderley street</td>
-    <td>{{adderCount}}</td>
-  </tr>
-    </tr>
-    <tr>
-    <td>Lower main road, Observatory</td>
-    <td>{{lowerCount}}</td>
-  </tr>
-</table>
 
 <br/>
 <br/>
@@ -173,9 +147,15 @@
 <br/>
 <br/>
     <hr>
-
-    {{> chart.handlebars}}
-
+    <div class="row">
+		<div class="col-6">
+	  	  {{> chart.handlebars}}
+		</div>
+		
+		<div class="col-6">
+	   	 {{> table.handlebars}}
+	    </div>
+	</div>
     <hr>
 
 

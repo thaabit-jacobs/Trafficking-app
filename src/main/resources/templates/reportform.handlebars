@@ -14,7 +14,7 @@
       margin: 0;
       outline: none;
       font-family: Roboto, Arial, sans-serif;
-      font-size: 14px;
+      font-size: 20px;
       color: #666;
       line-height: 22px;
       }
@@ -31,7 +31,7 @@
       justify-content: center;
       align-items: center;
       height: inherit;
-      padding: 20px;
+      padding: 17px;
       }
       form {
       width: 100%;
@@ -143,20 +143,20 @@
 <body>
 <!-------navbar----->
 <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">Home</a>
+    <a class="navbar-brand" href="#">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/search">Search Area</a>
+                <a class="nav-link" href="#">Search Area</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/report">Report Abduction</a>
+                <a class="nav-link" href="#">Report Abduction</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">SAPS Alert</a>
@@ -170,9 +170,8 @@
         </ul>
     </div>
 </nav>
-
 <div class="testbox">
-    <form action="/report" method="post">
+    <form action="/">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <div class="banner">
             <h1>safeGaurd24/7 Abduction Report Form</h1>
@@ -182,9 +181,9 @@
 
             <div class="name-item">
                 <p>First Name<span class="required">*</span></p>
-                <input type="text" name="witness_firstname" placeholder="" required="required"/>
+                <input type="text" name="witness_name" placeholder="" required="required"/>
                 <p>Last Name<span class="required">*</span></p>
-                <input type="text" name="witness_lastname" placeholder="" />
+                <input type="text" name="witness_name" placeholder="" />
             </div>
         </div>
         <div class="item">
@@ -198,26 +197,26 @@
 
             <div class="name-item">
                 <p>First Name<span class="required">*</span></p>
-                <input type="text" name="victim_firstname" placeholder="" />
+                <input type="text" name="victim_name" placeholder="" />
                 <p>Last Name<span class="required">*</span></p>
-                <input type="text" name="victim_lastname" placeholder="" />
+                <input type="text" name="victim_name" placeholder="" />
             </div>
         </div>
 
         <div class="item">
             <p>Age<span class="required">*</span></p>
-            <input type="" name="age"/>
+            <input type="" name=""/>
         </div>
         <p>Gender<span class="required">*</span></p>
         <div class="item">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"checked>
             <label class="form-check-label" for="exampleRadios2">
                 Non-Binary
             </label>
         </div>
 
         <div class="item">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" checked>
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" >
             <label class="form-check-label" for="exampleRadios1">
                 Female
             </label>
@@ -231,7 +230,15 @@
 
         <div class="item">
             <p>Area of Abduction<span class="required">*</span></p>
-            <input type="" name="location"/>
+            <select>
+                <option value=""></option>
+                <option value="">Long Street</option>
+                <option value="2">Bree Street</option>
+                <option value="3">Loop Street</option>
+                <option value="4">Kloof Street</option>
+                <option value="4">Adderley Street</option>
+                <option value="4">Lower Main Road, Observatory</option>
+            </select>
         </div>
         <div class="item">
             <p>Abduction Date<span class="required">*</span></p>
@@ -239,20 +246,12 @@
             <i class="fas fa-calendar-alt"></i>
         </div>
         <div class="item">
-            <p>Abduction Time(an estimation if you are uncertain)</p>
-            <input type="time" name="btime" required/>
-        </div>
-        <div class="item">
-            <p>Description of Abduction<span class="required">*</span></p>
+            <p>Description of Abduction</p>
             <textarea rows="5"></textarea>
         </div>
 
-        <div class="item">
-            <p>Any additional information that may be helpful to the police...</p>
-            <textarea rows="5"></textarea>
-        </div>
         <div class="btn-block">
-            <button type="submit" href="/success">Send</button>
+            <button type="submit" href="/">Send</button>
         </div>
     </form>
 </div>
